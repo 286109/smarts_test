@@ -1,0 +1,15 @@
+{%extends 'hr/base.html'%}
+{%block content%}
+<h1>Staff</h1>
+<a href="{% url 'hr:staff-create'%}">Create a new staff</a>
+<ul>
+{% for obj in object_list %}
+    <li>
+        <a href="{% url 'hr:staff-detail' obj.id %}">{{ obj.id }} - {{ obj.fname}} {{ obj.lname }}</a> | <a href="{% url 'hr:staff-update' obj.id %}">Edit</a> | 
+        <a href="{% url 'hr:staff-delete' obj.id %}">Delete</a>
+    </li>
+{% empty %}
+    <li>No staff yet.</li>
+{% endfor %}
+</ul>
+{%endblock content%}

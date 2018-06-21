@@ -1,0 +1,17 @@
+{% extends 'hr/base.html' %}
+{% block content %}
+    <h1>{{ object.fname}} {{object.lname }}</h1> | <a href="{% url 'hr:staff-update' object.id %}">Edit</a> | <a href="{% url 'hr:staff-delete' object.id %}">Delete</a>
+    <p>ID: {{ object.id }}</p>
+    <p>First name: {{ object.fname }}</p>
+    <p>Last name: {{ object.lname }}</p>
+    <p>Department: 
+        {% if object.department %}
+        <a href="{% url 'hr:department-detail' object.department.id %}">{{ object.department }}</a>
+        {% else %}
+            Department is not assigned
+        {% endif %}
+    </p>
+    <p>Birthdate: {{ object.bdate }}</p>
+    <p>Email: {{ object.email }}</p>
+    <p>Photo: <img src="{{ object.photo.url }}" alt="Photo of {{ object.fname}} {{object.lname }}"></p>
+{% endblock content %}

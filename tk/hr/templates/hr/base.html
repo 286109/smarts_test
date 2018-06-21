@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Your Website</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <nav>
+                <a href="{% url 'hr:department-list'%}">Departments</a> |
+                <a href="{% url 'hr:staff-list'%}">Staff</a> |
+            </nav>
+        </div>
+        {%block content%}
+        {%endblock content%}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{%extends 'hr/base.html'%}
+{%block content%}
+    <h1>Departments</h1>
+    <a href="{% url 'hr:department-create'%}">Create a new department</a>
+    <ul>
+        {% for department in object_list %}
+            <li><a href="{% url 'hr:department-detail' department.id %}">{{ department.id }} - {{ department.name }}</a> | <a href="{% url 'hr:department-update' department.id %}">Edit</a> | <a href="{% url 'hr:department-delete' department.id %}">Delete</a></li>
+        {% empty %}
+            <li>No deps yet.</li>
+        {% endfor %}
+    </ul>
+{%endblock content%}

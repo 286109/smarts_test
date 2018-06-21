@@ -1,0 +1,7 @@
+{%extends 'hr/base.html'%}
+{%block content%}
+    <h1>{{ object.name }}</h1> | <a href="{% url 'hr:department-update' department.id %}">Edit</a> | <a href="{% url 'hr:department-delete' department.id %}">Delete</a>
+    <p>Department ID: {{ object.id }}</p>
+    <p>Address: {{ object.address }}</p>
+    <p>Website: {{ object.website }}</p>
+{%endblock content%}
